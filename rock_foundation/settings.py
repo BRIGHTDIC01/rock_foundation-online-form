@@ -82,8 +82,6 @@ import dj_database_url
 DATABASES = {
     'default': dj_database_url.config(default='sqlite:///db.sqlite3')
 }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -120,7 +118,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# This tells Django where your static files live during development
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # Project-level static folder (optional if you have one)
+]
+
+# This is where collectstatic will collect files for production
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+# Use WhiteNoise for serving static files in production
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
