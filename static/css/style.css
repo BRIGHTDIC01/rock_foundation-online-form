@@ -1,0 +1,202 @@
+/* ===============================
+   ROYAL WHITE & ORANGE THEME
+================================= */
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #ffffff;
+    color: #1f2937;
+    overflow-x: hidden;
+}
+
+/* Navigation */
+nav {
+    background: #ffffff;
+    padding: 18px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(249, 115, 22, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav strong {
+    color: #ea580c;
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #1f2937;
+    margin-left: 30px;
+    font-weight: 500;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+/* Royal underline animation */
+nav a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    width: 0%;
+    height: 3px;
+    background: #ea580c;
+    transition: 0.4s ease;
+    transform: translateX(-50%);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Page Slide Animation */
+.container {
+    padding: 60px 10%;
+    animation: slideIn 0.6s ease forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: #ea580c;
+    letter-spacing: 1px;
+}
+
+/* Image Royal Reveal */
+img {
+    border-radius: 14px;
+    margin: 20px 10px;
+    box-shadow: 0 10px 25px rgba(249, 115, 22, 0.15);
+    transform: scale(0.95);
+    opacity: 0;
+    animation: imageReveal 1s ease forwards;
+}
+
+@keyframes imageReveal {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Form Card */
+form {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(249, 115, 22, 0.15);
+    animation: slideIn 0.6s ease forwards;
+}
+
+/* Inputs */
+input, select, textarea {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    transition: 0.3s ease;
+    font-size: 15px;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #ea580c;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Submit Button */
+button {
+    background: #ea580c;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: #c2410c;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(249, 115, 22, 0.4);
+}
+
+/* SUCCESS OVERLAY */
+.success-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2000;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.success-overlay h1 {
+    font-size: 36px;
+    color: #ea580c;
+    animation: zoomIn 0.6s ease forwards;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ===============================
+   TWO COLUMN FORM LAYOUT
+================================= */
+
+.elite-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 40px;
+}
+
+.elite-form h2 {
+    grid-column: span 2;
+    margin-top: 40px;
+    border-bottom: 2px solid #ea580c;
+    padding-bottom: 5px;
+}
+
+.elite-form button {
+    grid-column: span 2;
+    margin-top: 20px;
+}
+
+/* Make full-width fields span both columns */
+.elite-form textarea,
+.elite-form input[type="file"] {
+    grid-column: span 2;
+}

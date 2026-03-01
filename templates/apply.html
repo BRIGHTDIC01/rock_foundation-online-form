@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="apply-wrapper">
+
+    <div class="payment-card">
+        <h2 class="gold-title">Admission Form Fee</h2>
+        <p><strong>Primary:</strong> ₦3,000</p>
+        <p><strong>Secondary:</strong> ₦3,500</p>
+        <div class="divider"></div>
+        <p><strong>Account Number:</strong> 2007735304</p>
+        <p><strong>Bank:</strong> FCMB</p>
+        <p><strong>Account Name:</strong> ROCK-F ACADEMY LTD</p>
+    </div>
+
+    <div class="form-card">
+        <h1 class="gold-title center">Admission Form</h1>
+
+        <form method="POST" enctype="multipart/form-data" class="elite-form">
+            {% csrf_token %}
+
+            <!-- PERSONAL INFORMATION -->
+            <h2>Personal Information</h2>
+
+            {{ form.surname.label_tag }}
+            {{ form.surname }}
+
+            {{ form.first_name.label_tag }}
+            {{ form.first_name }}
+
+            {{ form.middle_name.label_tag }}
+            {{ form.middle_name }}
+
+            {{ form.dob.label_tag }}
+            {{ form.dob }}
+
+            {{ form.age.label_tag }}
+            {{ form.age }}
+
+            {{ form.gender.label_tag }}
+            {{ form.gender }}
+
+            {{ form.nationality.label_tag }}
+            {{ form.nationality }}
+
+            {{ form.class_of_entry.label_tag }}
+            {{ form.class_of_entry }}
+
+            {{ form.home_address.label_tag }}
+            {{ form.home_address }}
+
+            {{ form.state_of_residence.label_tag }}
+            {{ form.state_of_residence }}
+
+
+            <!-- GUARDIAN INFORMATION -->
+            <h2>Guardian Information</h2>
+
+            {{ form.guardian_name.label_tag }}
+            {{ form.guardian_name }}
+
+            {{ form.guardian_relationship.label_tag }}
+            {{ form.guardian_relationship }}
+
+            {{ form.guardian_phone.label_tag }}
+            {{ form.guardian_phone }}
+
+            {{ form.guardian_email.label_tag }}
+            {{ form.guardian_email }}
+
+            {{ form.guardian_occupation.label_tag }}
+            {{ form.guardian_occupation }}
+
+
+            <!-- PREVIOUS SCHOOL INFORMATION -->
+            <h2>Previous School Information</h2>
+
+            {{ form.previous_school.label_tag }}
+            {{ form.previous_school }}
+
+            {{ form.school_address.label_tag }}
+            {{ form.school_address }}
+
+            {{ form.last_class.label_tag }}
+            {{ form.last_class }}
+
+            {{ form.reason_for_leaving.label_tag }}
+            {{ form.reason_for_leaving }}
+
+
+            <!-- HEALTH INFORMATION -->
+            <h2>Health Information</h2>
+
+            {{ form.health_issues.label_tag }}
+            {{ form.health_issues }}
+
+            <div id="health-details-field">
+                {{ form.health_details.label_tag }}
+                {{ form.health_details }}
+            </div>
+
+
+            <!-- VOCATIONAL & PERSONAL DEVELOPMENT -->
+            <h2>Vocational & Personal Development</h2>
+
+            {{ form.vocational_skill.label_tag }}
+            {{ form.vocational_skill }}
+
+            {{ form.career_aspiration.label_tag }}
+            {{ form.career_aspiration }}
+
+            {{ form.extracurricular.label_tag }}
+            {{ form.extracurricular }}
+
+            {{ form.how_heard.label_tag }}
+            {{ form.how_heard }}
+
+            {{ form.additional_comments.label_tag }}
+            {{ form.additional_comments }}
+
+
+            <!-- PAYMENT PROOF -->
+            <h2>Payment Confirmation</h2>
+
+            {{ form.payment_proof.label_tag }}
+            {{ form.payment_proof }}
+
+            <button type="submit" class="royal-btn">Submit Application</button>
+
+        </form>
+    </div>
+
+</div>
+
+
+<!-- HEALTH DETAILS CONDITIONAL SCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const healthSelect = document.querySelector("select[name='health_issues']");
+    const healthDetails = document.getElementById("health-details-field");
+
+    function toggleHealthDetails() {
+        if (healthSelect.value === "Yes") {
+            healthDetails.style.display = "block";
+        } else {
+            healthDetails.style.display = "none";
+        }
+    }
+
+    toggleHealthDetails();
+    healthSelect.addEventListener("change", toggleHealthDetails);
+});
+</script>
+
+{% endblock %}
